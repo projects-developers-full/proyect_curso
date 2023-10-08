@@ -30,16 +30,18 @@ class CourseFactory extends Factory
             'title' => $this->faker->sentence(),
             'subtitle' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
-            //sera llenado con 3 posibles valores que se definieron en el modelo Course, 
-            //con el metodo randomElement() 
+            //sera llenado con 3 posibles valores que se definieron en el modelo Course,
+            //con el metodo randomElement()
             'status' => $this->faker->randomElement([Course::BORRADOR,Course::REVISION,Course::PUBLICADO]),
             'slug' => Str::slug($title),
             //para rescatar los id de los usuarios se realiza lo siguiente
-            //con random elije un id al azar  
+            //con random elije un id al azar
             'user_id' => User::all()->random()->id,
-            'level_id' => Lavel::all()->random()->id,
+            'lavel_id' => Lavel::all()->random()->id,
             'categorie_id' => Category::all()->random()->id,
-            'price_id' => Price::all()->random()->id,           
+            'price_id' => Price::all()->random()->id,
+
+
         ];
     }
 }

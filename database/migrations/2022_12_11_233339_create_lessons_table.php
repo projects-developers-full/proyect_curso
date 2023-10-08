@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('url');
-            $table->string('iframe');
+            $table->text('iframe');
             // permitiendo campos nulos
             $table->unsignedBigInteger('platform_id')->nullable();
             $table->unsignedBigInteger('section_id');
             $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('set null');
-            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');        
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->timestamps();
         });
     }
